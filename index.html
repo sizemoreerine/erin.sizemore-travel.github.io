@@ -29,6 +29,10 @@
     <br><br>
     Passport Number: <input name="passport" required="" size="75" type="text"/> 
     <br><br>
+    Subscribing to Digi Core: <input name="core" required="" size="75" type="text"/> 
+    <br><br>
+    Subscribing to Home Delivery: <input name="HD" required="" size="75" type="text"/> 
+    <br><br>
     <input name="submit" type="submit" value="submit"/>
 </form> 
     <script type="text/javascript">
@@ -38,19 +42,25 @@
         var email = form["email"].value;
         var fullname = form["fullname"].value;
         var passport = form["passport"].value;
+        var core = form["core"].value;
+        var HD = form["HD"].value;
         var destination = form["destination"].value;
         var details = form["details"].value;
         var user = {
             email: email, 
             name: fullname, 
             passport: passport,
+            core: core,
+            HD: HD,
             destination: destination, 
             details: details
         };
         analytics.identify('1234', {
             email: email, 
             name: fullname,
-            passport: passport
+            passport: passport,
+            core: core,
+            HD: HD
         });
         analytics.track('destination submitted', user, function() {
             window.location.href = "";
